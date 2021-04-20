@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const mananger = require(".lib/Manager.js");
+const engineer = require(".lib/Engineer.js");
+const intern = require(".lib/Intern.js");
 
 const generateHTML = (manager, engineer, intern) =>
   `<!DOCTYPE html>
@@ -12,7 +15,7 @@ const generateHTML = (manager, engineer, intern) =>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  
+  <link rel="stylesheet"href="output/styles.css"/>
   <title>Programing Team Profile</title>
   </head>
   <body>
@@ -28,7 +31,7 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${manager.name}</p>
-  <i class="fas fa-mug-hot"></i> ${manager.jobtitle}
+  <i class="fas fa-mug-hot"></i> ${manager.department}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -42,7 +45,7 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="engineer" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${engineer.name}</p>
-  <i class="fas fa-glasses"></i> ${engineer.jobtitle}
+  <i class="fas fa-glasses"></i> ${engineer.department}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -56,7 +59,7 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="student" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${intern.name}</p>
-  <i class="fas fa-user-graduate"></i> ${intern.jobtitle}
+  <i class="fas fa-user-graduate"></i> ${intern.department}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -79,7 +82,7 @@ inquirer
     },
     {
       type: 'input',
-      name: 'jobtitle',
+      name: 'department',
       message: 'What is your job title?',
     },
     {
