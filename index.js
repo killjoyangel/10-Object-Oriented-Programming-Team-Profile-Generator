@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateHTML = (answers) =>
+const generateHTML = (manager, engineer, intern) =>
   `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -27,42 +27,42 @@ const generateHTML = (answers) =>
     <div class="col">
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${answers.name}</p>
-  <i class="fas fa-mug-hot"></i> ${answers.jobtitle}
+  <p>${manager.name}</p>
+  <i class="fas fa-mug-hot"></i> ${manager.jobtitle}
     </div>
   </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${answers.id}</li>
-      <li class="list-group-item"> Email: ${answers.email}</li>
-      <li class="list-group-item"> GitHub: ${answers.office}</li>
+      <li class="list-group-item">ID: ${manager.id}</li>
+      <li class="list-group-item"> Email: ${manager.email}</li>
+      <li class="list-group-item"> Office number: ${manager.office}</li>
     </ul>
   </div>
   </div>
   <div class="col">
   <div id="engineer" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${answers.name}</p>
-  <i class="fas fa-glasses"></i> ${answers.jobtitle}
+  <p>${engineer.name}</p>
+  <i class="fas fa-glasses"></i> ${engineer.jobtitle}
     </div>
   </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${answers.id}</li>
-      <li class="list-group-item"> Email: ${answers.email}</li>
-      <li class="list-group-item"> GitHub: ${answers.office}</li>
+      <li class="list-group-item">ID: ${engineer.id}</li>
+      <li class="list-group-item"> Email: ${engineer.email}</li>
+      <li class="list-group-item"> GitHub: ${engineer.github}</li>
     </ul>
   </div>
   </div>
   <div class="col">
   <div id="student" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${answers.name}</p>
-  <i class="fas fa-user-graduate"></i> ${answers.student}
+  <p>${intern.name}</p>
+  <i class="fas fa-user-graduate"></i> ${intern.jobtitle}
     </div>
   </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${answers.id}</li>
-      <li class="list-group-item"> Email: ${answers.email}</li>
-      <li class="list-group-item"> School: ${answers.school}</li>
+      <li class="list-group-item">ID: ${intern.id}</li>
+      <li class="list-group-item"> Email: ${intern.email}</li>
+      <li class="list-group-item"> School: ${intern.school}</li>
     </ul>
   </div>
   </div>
@@ -79,18 +79,18 @@ inquirer
     },
     {
       type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+      name: 'jobtitle',
+      message: 'What is your job title?',
     },
     {
       type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      name: 'office',
+      message: 'What is your office number?',
     },
     {
       type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
+      name: 'email',
+      message: 'What is your email address?',
     },
     {
       type: 'input',
@@ -99,12 +99,13 @@ inquirer
     },
     {
       type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
+      name: 'school',
+      message: 'what school did you attend?',
     },
   ])
-  .then((answers) => {
-    const htmlPageContent = generateHTML(answers);
+
+  .then((manager, engineer, intern) => {
+    const htmlPageContent = generateHTML(manager, engineer, intern);
 
     fs.writeFile('index.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
