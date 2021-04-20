@@ -31,13 +31,13 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${manager.name}</p>
-  <i class="fas fa-mug-hot"></i> ${manager.department}
+  <i class="fas fa-mug-hot"></i> ${manager.Role}
     </div>
   </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${manager.id}</li>
       <li class="list-group-item"> Email: ${manager.email}</li>
-      <li class="list-group-item"> Office number: ${manager.office}</li>
+      <li class="list-group-item"> Office number: ${manager.OfficeNumber}</li>
     </ul>
   </div>
   </div>
@@ -45,7 +45,7 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="engineer" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${engineer.name}</p>
-  <i class="fas fa-glasses"></i> ${engineer.department}
+  <i class="fas fa-glasses"></i> ${engineer.Role}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -59,7 +59,7 @@ const generateHTML = (manager, engineer, intern) =>
   <div id="student" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${intern.name}</p>
-  <i class="fas fa-user-graduate"></i> ${intern.department}
+  <i class="fas fa-user-graduate"></i> ${intern.Role}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -82,13 +82,13 @@ inquirer
     },
     {
       type: 'input',
-      name: 'department',
+      name: 'Role',
       message: 'What is your job title?',
     },
     {
       type: 'input',
-      name: 'office',
-      message: 'What is your office number?',
+      name: 'OfficeNumber',
+      message: 'What is your OfficeNumber number?',
     },
     {
       type: 'input',
