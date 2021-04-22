@@ -9,6 +9,6 @@ test("Create Manager", () => {
 
 test("Office Number", () => {
   const officeNumber = 1;
-  const boss = new Manager("name", "id", "email", "officeNumber", "role");
-  expect(boss.getGitHub()).toBe(officeNumber);
+  const boss = new Manager("name", "id", "email", officeNumber, "role");
+  expect(boss.getOfficeNumber()).toBe(officeNumber);
 });
