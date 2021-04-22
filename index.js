@@ -26,6 +26,33 @@ const generatemananger = Manager => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 inquirer
   .prompt([
     {
