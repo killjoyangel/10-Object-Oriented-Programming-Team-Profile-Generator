@@ -3,29 +3,12 @@ const { ecNormalize } = require("sshpk");
 const Engineer = require("../lib/Engineer");
 
 test("Create engineer", () => {
-  const engineer = new Employee("name", "role", "id", "email")
-  expect(typeof(employee)).toBe("object")
+  const engineer = new Engineer("name", "role", "id", "email", "github")
+  expect(engineer.getRole()).toBe('Engineer')
 })
 
-test("Create employee name", () => {
- const name = "Jared"
-  const employee = new Employee(name, "role", "id", "email")
-  expect(employee.getName()).toBe(name)
+test("Github username", () => {
+ const github = "killjoyangel2"
+  const engineer = new Engineer("name", "role", "id", "email", GitHub)
+  expect(engineer.getGitHub()).toBe(gitHub)
 })
-
-test("Create employee ID", () => {
-  const id = "1"
-   const employee = new Employee("name", "role", id , "email")
-   expect(employee.getid()).toBe(id)
- })
- 
- test("Create employee email", () => {
-  const email = "email@email.com"
-   const employee = new Employee("name", "role", "id" , email)
-   expect(employee.getEmail()).toBe(email)
- })
- 
- test("Create employee role", () => {
-   const employee = new Employee("name","id", "email",)
-   expect(employee.getRole()).toBe('Employee')
- })
