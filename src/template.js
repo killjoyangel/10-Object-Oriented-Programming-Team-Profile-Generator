@@ -4,8 +4,8 @@ const mananger = require(".lib/Manager.js");
 const engineer = require(".lib/Engineer.js");
 const intern = require(".lib/Intern.js");
 
-const generateHTML = (manager, engineer, intern) =>
-  `<!DOCTYPE html>
+const generateHTML = (manager, engineer, intern) => {
+ `<!DOCTYPE html
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -30,22 +30,22 @@ const generateHTML = (manager, engineer, intern) =>
     <div class="col">
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${manager.name}</p>
-  <i class="fas fa-mug-hot"></i> ${manager.Role}
+    <p>${Manager.getname()}</p>
+    <i class="fas fa-mug-hot"></i> ${Manager.getRole()}
     </div>
-  </div>
+    </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${manager.id}</li>
-      <li class="list-group-item"> Email: ${manager.email}</li>
-      <li class="list-group-item"> Office number: ${manager.OfficeNumber}</li>
+      <li class="list-group-item">ID: ${Manager.getid()}</li>
+      <li class="list-group-item"> Email: ${Manager.getemail()}</li>
+      <li class="list-group-item"> Office number: ${Manager.getOfficeNumber()}</li>
     </ul>
-  </div>
-  </div>
+    </div>
+    </div>
   <div class="col">
   <div id="engineer" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${engineer.name}</p>
-  <i class="fas fa-glasses"></i> ${engineer.Role}
+  <p>${engineer.getname()}</p>
+  <i class="fas fa-glasses"></i> ${engineer.getRole()}
     </div>
   </div>
     <ul class="list-group list-group-flush">
@@ -71,4 +71,5 @@ const generateHTML = (manager, engineer, intern) =>
   </div>
   </div>
   </body>
-  </html>>`;
+  </html>>`}
+  return `<!DOCTYPE html>
