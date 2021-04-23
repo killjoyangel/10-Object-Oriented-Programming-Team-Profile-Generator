@@ -7,7 +7,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
-const generateHTML = require("./src/template2");
+const generateHTML = require("./src/generateHTML");
 
 const theATeam = [];
 const queMananger = [

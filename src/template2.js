@@ -3,7 +3,7 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 
 
-const generateManager => {
+const generateManager(){
     return`<div class="col">
 <div id="Manager" class="card" style="width: 18rem;">
 <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
@@ -21,8 +21,7 @@ const generateManager => {
 };
 
 const generateEngineer = Engineer => {
-        return`
-<div class="col">
+return`<div class="col">
 <div id="engineer" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
 <p>${engineer.getname()}</p>
