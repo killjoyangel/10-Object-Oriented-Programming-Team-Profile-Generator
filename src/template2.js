@@ -1,9 +1,8 @@
+const Manager = require("./lib/Manager")
+const Engineer = require("./lib/Engineer")
+const Intern = require("./lib/Intern")
 
 const generateHTML = (teamGenerator) = team  => {
-  const Manager = require("./lib/Manager")
-  const Engineer = require("./lib/Engineer")
-  const Intern = require("./lib/Intern")
-
 
   function generateManager(Mananager) {
     return`<div class="col">
@@ -20,7 +19,7 @@ const generateHTML = (teamGenerator) = team  => {
 </ul>
 </div>
 </div>`
-  }
+  };
 
 const generateEngineer(Engineer) {
 return`

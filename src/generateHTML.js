@@ -14,11 +14,9 @@ module.exports = (data) => {
   </ul>
   </div>
   </div>`
-
-
-  const Manager = require("./lib/Manager")
-
-  function generateManager(Mananager) {
+}
+module.exports = (manager) => {
+Function generatemanager (Manager)
     return`<div class="col">
 <div id="Manager" class="card" style="width: 18rem;">
 <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
@@ -33,11 +31,10 @@ module.exports = (data) => {
 </ul>
 </div>
 </div>`
-  };
+};
 
-  const Engineer = require("./lib/Engineer")
-
-Function generateEngineer(Engineer) {
+module.exports = (manager) => {
+Function generateengineer(Engineer) {
 return`
 <div class="col">
 <div id="engineer" class="card" style="width: 18rem;">
@@ -55,8 +52,9 @@ return`
 </div>`
 };
 
+module.exports = (manager) => {
 const Intern = require("./lib/Intern")
-Function  generateIntern (Intern) {
+Function  generateintern (Intern) {
   return`
 <div class="col">
 <div id="student" class="card" style="width: 18rem;">
@@ -72,6 +70,4 @@ Function  generateIntern (Intern) {
   </ul>
 </div>
 </div>`
-};
-
 };
