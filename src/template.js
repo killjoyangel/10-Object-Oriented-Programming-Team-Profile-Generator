@@ -4,7 +4,9 @@ const mananger = require(".lib/Manager.js");
 const engineer = require(".lib/Engineer.js");
 const intern = require(".lib/Intern.js");
 
-const generateHTML = (manager, engineer, intern) => {
+const generateHTML = (teamGenerator) = team  => {
+
+  function generateManager(mana)
   return`<!DOCTYPE html
   <html lang="en">
   <head>

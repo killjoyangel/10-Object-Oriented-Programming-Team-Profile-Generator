@@ -70,17 +70,18 @@ const queEngineer = () => {
         choices: ["Engineer", "Intern", "Team is full"],
       },
     ])
-    .then((answers) => {
+
+    .then((data) => {
       theATeam.push(
-        new Engineer(answers.name, answers.id, answers.email, answers.GitHub)
+        new Engineer(data.name, data.id, data.email, data.GitHub)
       );
-      if (answers.team === "Engineer") {
+      if (data.team === "Engineer") {
         queEngineer();
-      } else if (answers.team === "Intern") {
+      } else if (data.team === "Intern") {
         queIntern();
       } else {
-        let answers = generateHTML(theATeam);
-        fs.writeFileSync("team.html", "answers", "utf-8");
+        let data = generateHTML(theATeam);
+        fs.writeFileSync("team.html", data, "utf-8");
       }
     });
 };
@@ -115,36 +116,45 @@ const queIntern = () => {
         choices: ["Engineer", "Intern", "Team is full"],
       },
     ])
-    .then((answers) => {
+    .then((data) => {
       theATeam.push(
-        new Intern(answers.name, answers.id, answers.email, answers.school)
+        new Intern(data.name, data.id, data.email, data.school)
       );
-      if (answers.team === "Engineer") {
+      if (data.team === "Engineer") {
         queEngineer();
-      } else if (answers.team === "Intern") {
+      } else if (data.team === "Intern") {
         queIntern();
       } else {
-        let answers = generateHTML(theATeam);
-        fs.writeFileSync("team.html", "answers", "utf-8");
+       let data = generateHTML(theATeam);
+        fs.writeFileSync("team.html", data, "utf-8");
       }
     });
 };
 
 const init = () => {
-  inquirer.prompt(queMananger).then((answers) => {
+  inquirer.prompt(queMananger).then((data) => {
     theATeam.push(
-      new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+      new Manager(data.name, data.id, data.email, data.officeNumber)
     );
-    if (answers.team === "Engineer") {
+    if (data.team === "Engineer") {
       queEngineer();
-    } else if (answers.team === "Intern") {
+    } else if (data.team === "Intern") {
       queIntern();
     } else {
       console.log(theATeam);
-let answers = generateHTML(teamMembers);
- fs.writeFileSync("team.html", answers, "utf-8"); 
+      let data = generateHTML(theATeam);
+ fs.writeFileSync("team.html", data, "utf-8"); 
     }
   });
 };
 
+
+
 init();
+
+.then((answers) => {
+  const HTMLPageContent = generateHTML(answers);
+  fs.writeFile('team.html', HTMLPageContent, (err) =>
+  err ? console.log(err) : console.log('Successfully created team.html!')
+  );
+});
