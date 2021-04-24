@@ -60,11 +60,4 @@ const generateIntern(Intern) {
 };
 
 
-
-
-
-
-
-
-
 module.exports = team;

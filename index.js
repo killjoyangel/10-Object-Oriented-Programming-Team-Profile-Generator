@@ -1,15 +1,15 @@
-const Employee = require("./lib/Employee");
-const Team = new Employee();
-
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
-const fs = require("fs");
-const path = require("path");
-const generateHTML = require("./src/generateHTML");
-
-const theATeam = [];
+ const Employee = require("./lib/Employee");
+  const Team = new Employee();
+  
+  const Manager = require("./lib/Manager");
+  const Engineer = require("./lib/Engineer");
+  const Intern = require("./lib/Intern");
+  const inquirer = require("inquirer");
+  const fs = require("fs");
+  const path = require("path");
+  const generateHTML = require("./src/generateHTML");
+  
+  const theATeam = [];
 const queMananger = [
   {
     type: "input",
@@ -131,6 +131,7 @@ const queIntern = () => {
     });
 };
 
+
 const init = () => {
   inquirer.prompt(queMananger).then((data) => {
     theATeam.push(
@@ -150,11 +151,12 @@ const init = () => {
 
 
 
-init();
+init()
 
-.then((answers) => {
-  const HTMLPageContent = generateHTML(answers);
-  fs.writeFile('team.html', HTMLPageContent, (err) =>
-  err ? console.log(err) : console.log('Successfully created team.html!')
-  );
-});
+//.((answers) => {
+  //const HTMLPageContent = generateHTML(answers);
+  //fs.writeFile("team.html", HTMLPage HTMLPageContent, (err) =>
+  //err ? console.log(err) : console.log ("Successfully created team.hml")
+ // );
+//});
+
