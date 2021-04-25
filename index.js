@@ -1,12 +1,13 @@
 const Employee = require("./lib/Employee");
-const Team = new Employee();
+//const Team = new Employee();
 
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const path = require("path");
+//const path = require("path");
+//const OUTPUT_DIR = path.resolve(__dirname, "output");
 const generateHTML = require("./src/Page_template");
 
 const theATeam = [];
@@ -71,19 +72,41 @@ const queEngineer = () => {
       },
     ])
 
-    
     .then((data) => {
+      theATeam.push(
+          new Engineer(data.name, data.id, data.email, data.GitHub)
+      );
+      if (data.members === "Engineer") {
+          askEngineer();
+      } else if (data.members === "Intern") {
+          askIntern();
+      } else {
+          let data = generateHTML(theATeam);
+          fs.writeFileSync("team.html", data, "utf-8");
+      }
+  });
+};
+  
+    /*.then((data) => {
       theATeam.push(new Engineer(data.name, data.id, data.email, data.GitHub));
       if (data.team === "Engineer") {
         queEngineer();
       } else if (data.team === "Intern") {
         queIntern();
       } else {
-        let data = generateHTML(theATeam);
-        fs.writeFileSync("team.html", data, "utf-8");
+        console.log(theATeam)
+        let data1 = generateTeam(theATeam);
+        console.log(data1)
+        let data2 =  JSON.stringify(data1)
+        console.log(data2)
+        fs.writeFile("team.html", data2, function(err){
+          if (err){
+            return console.log(err)
+          }
+        });
       }
     });
-};
+};*/
 
 const queIntern = () => {
   inquirer
@@ -115,20 +138,62 @@ const queIntern = () => {
         choices: ["Engineer", "Intern", "Team is full"],
       },
     ])
+    
+
     .then((data) => {
+      theATeam.push(
+          new Intern(data.name, data.id, data.email, data.school)
+      );
+      if (data.members === "Engineer") {
+          askEngineer();
+      } else if (data.members === "Intern") {
+          askIntern();
+      } else {
+          let data = generateHTML(theATeam);
+          fs.writeFileSync("team.html", data, "utf-8");
+      }
+  });
+};
+
+
+    /*.then((data) => {
       theATeam.push(new Intern(data.name, data.id, data.email, data.school));
       if (data.team === "Engineer") {
         queEngineer();
       } else if (data.team === "Intern") {
         queIntern();
       } else {
-        let data = generateHTML(theATeam);
-        fs.writeFileSync("team.html", data, "utf-8"); 
-           }
-         });
-       };
-
+        console.log(theATeam)
+        let data1 = generateTeam(theATeam);
+        console.log(data1)
+        let data2 =  JSON.stringify(data1)
+        console.log(data2)
+        fs.writeFile("team.html", data2, function(err){
+          if (err){
+            return console.log(err)
+          }
+        });
+      }
+    });
+};
+*/
 const init = () => {
+  inquirer.prompt(queMananger).then((data) => {
+      theATeam.push(
+          new Manager(data.name, data.id, data.email, data.officeNumber)
+      );
+      if (data.members === "Engineer") {
+          askEngineer();
+      } else if (data.members === "Intern") {
+          askIntern();
+      } else {
+          //end function here and generateHTML
+          let data = generateHTML(theATeam);
+          fs.writeFileSync("team.html", data, "utf-8");
+      }
+  });
+};
+/*const init = () => {
   inquirer.prompt(queMananger).then((data) => {
     theATeam.push(
       new Manager(data.name, data.id, data.email, data.officeNumber)
@@ -139,12 +204,19 @@ const init = () => {
       queIntern();
     } else {
       console.log(theATeam);
-      let data = generateHTML(theATeam);
-      fs.writeFileSync("team.html", data, "utf-8");
+      let data1 = generateTeam(theATeam);
+      console.log(data1)
+     let data2 =  JSON.stringify(data1)
+      console.log(data2)
+      fs.writeFile("team.html", data2, function(err){
+        if (err){
+          return console.log(err)
+        }
+      });
     }
   });
 };
-
+*/
 init();
 
 //.((answers) => {

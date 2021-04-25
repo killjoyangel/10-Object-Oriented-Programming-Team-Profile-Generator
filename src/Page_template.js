@@ -1,58 +1,77 @@
-const  generateTeam = theATeam => {
- const generatemanager = manager => {
+const generateManager = (data) => {
   return`<div class="col">
   <div id="Manager" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>${manager.getname()}</p>
-  <i class="fas fa-mug-hot"></i> ${manager.getRole()}
+  <p>${data.getName()}</p>
+  <i class="fas fa-mug-hot"></i> ${data.getRole()}
   </div>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${manager.getid()}</li>
-    <li class="list-group-item"> Email: ${manager.getemail()}</li>
-    <li class="list-group-item"> Office number: ${manager.getOfficeNumber()}</li>
+    <li class="list-group-item">ID: ${data.getid()}</li>
+    <li class="list-group-item"> Email: ${data.getEmail()}</li>
+    <li class="list-group-item"> Office number: ${data.getOfficeNumber()}</li>
   </ul>
   </div>
   </div>`
 }
 
-const generateEngineer = engineer =>{
+const generateEngineer = (data) =>{
   return`<div class="col">
 <div id="engineer" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-<p>${engineer.getname()}</p>
-<i class="fas fa-glasses"></i> ${engineer.getRole()}
+<p>${engineer.getName()}</p>
+<i class="fas fa-glasses"></i> ${data.getRole()}
   </div>
 </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${engineer.getid}</li>
-    <li class="list-group-item"> Email: ${engineer.email}</li>
-    <li class="list-group-item"> GitHub: ${engineer.github}</li>
+    <li class="list-group-item">ID: ${data.getid()}</li>
+    <li class="list-group-item"> Email: ${data.getEmail()}</li>
+    <li class="list-group-item"> GitHub: ${data.getGitHub()}</li>
   </ul>
 </div>
 </div>`
-}
+};
 
-const Intern = require("./lib/Intern")
-const  generateIntern = intern => {
+const  generateIntern = (data) => {
   return`
 <div class="col">
 <div id="student" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-<p>${intern.getname()}</p>
-<i class="fas fa-user-graduate"></i> ${intern.getRole()}
+<p>${data.getName()}</p>
+<i class="fas fa-user-graduate"></i> ${data.getRole()}
   </div>
 </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${intern.getid()}</li>
-    <li class="list-group-item"> Email: ${intern.getemail()}</li>
-    <li class="list-group-item"> School: ${intern.getschool()}</li>
+    <li class="list-group-item">ID: ${data.getid()}</li>
+    <li class="list-group-item"> Email: ${data.getEmail()}</li>
+    <li class="list-group-item"> School: ${data.getschool()}</li>
   </ul>
 </div>
 </div>`
-}
+};
 
-module.exports = team => {
+const generateCards = (data) => {
+  let htmlString = "";
+  data.forEach((element) => {
+      console.log(element)
+      if (element.getRole() === "Manager") {
+          let string = generateManager(element);
+          htmlString += string;
+
+      } else if (element.getRole() === "Engineer") {
+          let string = generateEngineer(element);
+          htmlString += string;
+
+      } else if (element.getRole() === "Intern") {
+          let string = generateIntern(element);
+          htmlString += string;
+      }
+  });
+  return htmlString;
+
+};
+
+const generateHTML = (data) => {
   return`<!DOCTYPE html
   <html lang="en">
   <head>
@@ -72,7 +91,15 @@ module.exports = team => {
   <div class="p-3 mb-2 bg-danger text-white">
   <h1 class="display-4">My Team</h1>
   </div>
-  </div>`
+  </div>
   
-}
+  <div class="row row-cols-2 row-cols-md-3 g-5">
+    <div class="col">
+    ${generateCards(data)}
+  </div>
+  </body>
+  </html>`;
+  
 };
+
+module.exports = generateHTML;
