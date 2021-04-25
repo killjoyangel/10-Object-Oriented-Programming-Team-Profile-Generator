@@ -1,15 +1,15 @@
- const Employee = require("./lib/Employee");
-  const Team = new Employee();
-  
-  const Manager = require("./lib/Manager");
-  const Engineer = require("./lib/Engineer");
-  const Intern = require("./lib/Intern");
-  const inquirer = require("inquirer");
-  const fs = require("fs");
-  const path = require("path");
-  const generateHTML = require("./src/generateHTML");
-  
-  const theATeam = [];
+const Employee = require("./lib/Employee");
+const Team = new Employee();
+
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const generateHTML = require("./src/Page_template");
+
+const theATeam = [];
 const queMananger = [
   {
     type: "input",
@@ -72,9 +72,7 @@ const queEngineer = () => {
     ])
 
     .then((data) => {
-      theATeam.push(
-        new Engineer(data.name, data.id, data.email, data.GitHub)
-      );
+      theATeam.push(new Engineer(data.name, data.id, data.email, data.GitHub));
       if (data.team === "Engineer") {
         queEngineer();
       } else if (data.team === "Intern") {
@@ -117,20 +115,17 @@ const queIntern = () => {
       },
     ])
     .then((data) => {
-      theATeam.push(
-        new Intern(data.name, data.id, data.email, data.school)
-      );
+      theATeam.push(new Intern(data.name, data.id, data.email, data.school));
       if (data.team === "Engineer") {
         queEngineer();
       } else if (data.team === "Intern") {
         queIntern();
       } else {
-       let data = generateHTML(theATeam);
-        fs.writeFileSync("team.html", data, "utf-8");
-      }
-    });
-};
-
+        let data = generateHTML(theATeam);
+        fs.writeFileSync("team.html", data, "utf-8"); 
+           }
+         });
+       };
 
 const init = () => {
   inquirer.prompt(queMananger).then((data) => {
@@ -144,19 +139,16 @@ const init = () => {
     } else {
       console.log(theATeam);
       let data = generateHTML(theATeam);
- fs.writeFileSync("team.html", data, "utf-8"); 
+      fs.writeFileSync("team.html", data, "utf-8");
     }
   });
 };
 
-
-
-init()
+init();
 
 //.((answers) => {
-  //const HTMLPageContent = generateHTML(answers);
-  //fs.writeFile("team.html", HTMLPage HTMLPageContent, (err) =>
-  //err ? console.log(err) : console.log ("Successfully created team.hml")
- // );
+//const HTMLPageContent = generateHTML(answers);
+//fs.writeFile("team.html", HTMLPage HTMLPageContent, (err) =>
+//err ? console.log(err) : console.log ("Successfully created team.hml")
+// );
 //});
-
