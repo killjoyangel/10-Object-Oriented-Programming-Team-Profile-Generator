@@ -1,5 +1,6 @@
 
 const generateManager = (data) => {
+  console.log(data)
   return` <div class="row row-cols-2 row-cols-md-3 g-5">
   <div class="col">
 <div id="manager" class="card" style="width: 18rem;">
@@ -10,7 +11,7 @@ const generateManager = (data) => {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
+    <li class="list-group-item"> Email: ${data.getEmail()}</li>
     <li class="list-group-item"> Office number: ${data.getOfficeNumber()}</li>
   </ul>
   </div>
@@ -27,7 +28,7 @@ const generateEngineer = (data) =>{
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
+    <li class="list-group-item"> Email: ${data.getEmail()}</li>
     <li class="list-group-item"> GitHub: ${data.getGitHub()}</li>
   </ul>
 </div>
@@ -44,7 +45,7 @@ const  generateIntern = (data) => {
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
+    <li class="list-group-item"> Email:${data.getEmail()}</li>
    <li class="list-group-item"> School: ${data.getschool()}</li>
   </ul>
 </div>
@@ -83,7 +84,7 @@ const generateHTML = (data) => {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet"href="output/styles.css"/>
+  <link rel="stylesheet" type="text/css" href="/output/styles.css">
   <title>Programing Team Profile</title>
   </head>
   <body>

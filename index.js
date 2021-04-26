@@ -77,7 +77,6 @@ const queEngineer = () => {
       } else if (data.team === "Intern") {
           queIntern();
       } else {
-        console.log(theATeam)
         let data = generateHTML(theATeam);
    fs.writeFileSync("dist_/team.html", data, "utf-8");
       }
@@ -133,7 +132,6 @@ const queIntern = () => {
 
 const init = () => {
   inquirer.prompt(queMananger).then((data) => {
-    console.log(data)
       theATeam.push(
           new Manager(data.name, data.id, data.email, data.officeNumber)
       );
