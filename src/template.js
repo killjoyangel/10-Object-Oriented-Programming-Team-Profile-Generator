@@ -1,13 +1,4 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const mananger = require(".lib/Manager.js");
-const engineer = require(".lib/Engineer.js");
-const intern = require(".lib/Intern.js");
-
-const generateHTML = (teamGenerator) = team  => {
-
-  function generateManager(mana)
-  return`<!DOCTYPE html
+<!DOCTYPE html
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -33,7 +24,7 @@ const generateHTML = (teamGenerator) = team  => {
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
     <p>${manager.getname()}</p>
-    <i class="fas fa-mug-hot"></i> ${manager.getRole()}
+    <i class="fas fa-mug-hot"></i>${manager.getRole()}
     </div>
     </div>
     <ul class="list-group list-group-flush">

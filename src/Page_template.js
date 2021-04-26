@@ -1,5 +1,6 @@
 const generateManager = (data) => {
-  return`<div class="col">
+  return`<div class="row row-cols-3 row-cols-md-4">
+  <div class="col mb-4">
   <div id="Manager" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${data.getName()}</p>
@@ -8,7 +9,7 @@ const generateManager = (data) => {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: ${data.getEmail()}</li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
     <li class="list-group-item"> Office number: ${data.getOfficeNumber()}</li>
   </ul>
   </div>
@@ -16,10 +17,11 @@ const generateManager = (data) => {
 }
 
 const generateEngineer = (data) =>{
-  return`<div class="col">
+  return`<div class="row row-cols-31 row-cols-md-4">
+  <div class="col mb-4">
 <div id="engineer" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-<p>${engineer.getName()}</p>
+<p>${data.getName()}</p>
 <i class="fas fa-glasses"></i> ${data.getRole()}
   </div>
 </div>
@@ -33,8 +35,8 @@ const generateEngineer = (data) =>{
 };
 
 const  generateIntern = (data) => {
-  return`
-<div class="col">
+  return`<div class="row row-cols-3 row-cols-md-4">
+  <div class="col mb-4">
 <div id="student" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
 <p>${data.getName()}</p>
@@ -72,7 +74,7 @@ const generateCards = (data) => {
 };
 
 const generateHTML = (data) => {
-  return`<!DOCTYPE html
+  return`<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -92,12 +94,8 @@ const generateHTML = (data) => {
   <h1 class="display-4">My Team</h1>
   </div>
   </div>
-  
-  <div class="row row-cols-2 row-cols-md-3 g-5">
-    <div class="col">
-    ${generateCards(data)}
-  </div>
-  </body>
+  ${generateCards(data)}  
+ </body>
   </html>`;
   
 };

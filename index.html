@@ -21,20 +21,47 @@
   
   <div class="row row-cols-2 row-cols-md-3 g-5">
     <div class="col">
-    <div class="col">
-  <div id="Manager" class="card" style="width: 18rem;">
-  <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
-  <p>adaafa</p>
-  <i class="fas fa-mug-hot"></i> Manager
+  <div id="manager" class="card" style="width: 18rem;">
+    <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
+    <p>${manager.getname()}</p>
+    <i class="fas fa-mug-hot"></i> ${manager.getRole()}
+    </div>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${manager.getid()}</li>
+      <li class="list-group-item"> Email: ${manager.getemail()}</li>
+      <li class="list-group-item"> Office number: ${manager.getOfficeNumber()}</li>
+    </ul>
+    </div>
+    </div>
+  <div class="col">
+  <div id="engineer" class="card" style="width: 18rem;">
+    <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
+  <p>${engineer.getname()}</p>
+  <i class="fas fa-glasses"></i> ${engineer.getRole()}
+    </div>
+  </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${engineer.id}</li>
+      <li class="list-group-item"> Email: ${engineer.email}</li>
+      <li class="list-group-item"> GitHub: ${engineer.github}</li>
+    </ul>
   </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: afa</li>
-    <li class="list-group-item"> Email: undefined</li>
-    <li class="list-group-item"> Office number: af</li>
-  </ul>
+  <div class="col">
+  <div id="student" class="card" style="width: 18rem;">
+    <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
+  <p>${intern.name}</p>
+  <i class="fas fa-user-graduate"></i> ${intern.Role}
+    </div>
+  </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${intern.id}</li>
+      <li class="list-group-item"> Email: ${intern.email}</li>
+      <li class="list-group-item"> School: ${intern.school}</li>
+    </ul>
   </div>
   </div>
   </div>
   </body>
-  </html>
+  </html>`
