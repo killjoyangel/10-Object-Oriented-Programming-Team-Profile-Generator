@@ -10,7 +10,7 @@ const generateManager = (data) => {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
     <li class="list-group-item"> Office number: ${data.getOfficeNumber()}</li>
   </ul>
   </div>
@@ -27,7 +27,7 @@ const generateEngineer = (data) =>{
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
     <li class="list-group-item"> GitHub: ${data.getGitHub()}</li>
   </ul>
 </div>
@@ -44,7 +44,7 @@ const  generateIntern = (data) => {
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
    <li class="list-group-item"> School: ${data.getschool()}</li>
   </ul>
 </div>
