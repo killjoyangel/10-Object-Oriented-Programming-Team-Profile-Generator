@@ -1,7 +1,8 @@
+
 const generateManager = (data) => {
-  return`<div class="row row-cols-3 row-cols-md-4">
-  <div class="col mb-4">
-  <div id="Manager" class="card" style="width: 18rem;">
+  return` <div class="row row-cols-2 row-cols-md-3 g-5">
+  <div class="col">
+<div id="manager" class="card" style="width: 18rem;">
   <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
   <p>${data.getName()}</p>
   <i class="fas fa-mug-hot"></i> ${data.getRole()}
@@ -17,17 +18,16 @@ const generateManager = (data) => {
 }
 
 const generateEngineer = (data) =>{
-  return`<div class="row row-cols-31 row-cols-md-4">
-  <div class="col mb-4">
-<div id="engineer" class="card" style="width: 18rem;">
-  <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
+  return`<div class="col">
+  <div id="engineer" class="card" style="width: 18rem;">
+    <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
 <p>${data.getName()}</p>
 <i class="fas fa-glasses"></i> ${data.getRole()}
   </div>
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: ${data.getEmail()}</li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
     <li class="list-group-item"> GitHub: ${data.getGitHub()}</li>
   </ul>
 </div>
@@ -35,18 +35,17 @@ const generateEngineer = (data) =>{
 };
 
 const  generateIntern = (data) => {
-  return`<div class="row row-cols-3 row-cols-md-4">
-  <div class="col mb-4">
-<div id="student" class="card" style="width: 18rem;">
-  <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
+  return`<div class="col">
+  <div id="student" class="card" style="width: 18rem;">
+    <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
 <p>${data.getName()}</p>
 <i class="fas fa-user-graduate"></i> ${data.getRole()}
   </div>
 </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${data.getid()}</li>
-    <li class="list-group-item"> Email: ${data.getEmail()}</li>
-    <li class="list-group-item"> School: ${data.getschool()}</li>
+    <li class="list-group-item"> Email: <a href="mailto:${data.email}">${data.email}</a></li>
+   <li class="list-group-item"> School: ${data.getschool()}</li>
   </ul>
 </div>
 </div>`
@@ -94,7 +93,8 @@ const generateHTML = (data) => {
   <h1 class="display-4">My Team</h1>
   </div>
   </div>
-  ${generateCards(data)}  
+  ${generateCards(data)}
+  </div> 
  </body>
   </html>`;
   

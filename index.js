@@ -79,7 +79,7 @@ const queEngineer = () => {
       } else {
         console.log(theATeam)
         let data = generateHTML(theATeam);
-                  fs.writeFileSync("team.html", data, "utf-8");
+   fs.writeFileSync("dist/team.html", data, "utf-8");
       }
   });
 };
@@ -126,7 +126,7 @@ const queIntern = () => {
           queIntern();
       } else {
           let data = generateHTML(theATeam);
-          fs.writeFileSync("team.html", data, "utf-8");
+          fs.writeFileSync("dist/team.html", data, "utf-8");
       }
   });
 };
@@ -143,7 +143,7 @@ const init = () => {
           queIntern();
       } else {
           let data = generateHTML(theATeam);
-          fs.writeFileSync("team.html", data, "utf-8");
+          fs.writeFileSync("dist/team.html", data, "utf-8");
       }
   });
 };

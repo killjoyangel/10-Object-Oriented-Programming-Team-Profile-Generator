@@ -24,9 +24,11 @@
   <div id="manager" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
     <p>${manager.getname()}</p>
-    <i class="fas fa-mug-hot"></i> ${manager.getRole()}
+    <i class="fas fa-mug-hot"></i>${manager.getRole()}
     </div>
     </div>
+
+
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${manager.getid()}</li>
       <li class="list-group-item"> Email: ${manager.getemail()}</li>
@@ -48,6 +50,7 @@
     </ul>
   </div>
   </div>
+
   <div class="col">
   <div id="student" class="card" style="width: 18rem;">
     <div class="p-3 mb-2 bg-primary text-white"><div class="card-header">
@@ -55,7 +58,7 @@
   <i class="fas fa-user-graduate"></i> ${intern.Role}
     </div>
   </div>
-    <ul class="list-group list-group-flush">
+   <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${intern.id}</li>
       <li class="list-group-item"> Email: ${intern.email}</li>
       <li class="list-group-item"> School: ${intern.school}</li>
