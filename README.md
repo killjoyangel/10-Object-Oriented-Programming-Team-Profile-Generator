@@ -3,7 +3,7 @@
 Our task was to create a command-line application. That dynamically generates a new html/css file from a user's input using the Inquirer package and jest to test.
 
 I created a demo that you can view on this link:
- [Good README Generator Demo](https://drive.google.com/file/d/1BLbe6w9UIov3UzG22q1rq4g9ZKorqRxf/view?usp=sharing/)
+ (https://drive.google.com/file/d/1BLbe6w9UIov3UzG22q1rq4g9ZKorqRxf/view?usp=sharing/)
 
 <br>
 <br>
